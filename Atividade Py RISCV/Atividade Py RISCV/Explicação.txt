@@ -1,0 +1,38 @@
+Simulador RISC-V RV32I (Python)
+===============================
+
+Resumo
+------
+Implementa um simulador do conjunto de instruções RV32I, com memória mapeada e VRAM.
+O projeto é auto-contido em `riscv_sim.py`.
+
+Mapeamento de memória
+---------------------
+- 0x00000 - 0x7FFFF : RAM principal (programa, pilha, dados)
+- 0x80000 - 0x8FFFF : VRAM (área de vídeo; conteúdo será mostrado no terminal)
+- 0x90000 - 0x9FBFF : Reservado
+- 0x9FC00 - 0x9FFFF : Periféricos (E/S mapeada)
+
+Como rodar
+----------
+1. Salve o arquivo `riscv_sim.py`.
+2. `python3 riscv_sim.py`
+O programa de teste presente escreve a string "HELLO\n" na VRAM e então emite `ecall` (o simulador trata `ecall` como término do programa).
+
+Estrutura do código
+-------------------
+- Memory: classe que lida com leituras/gravações de bytes/half/words.
+- Bus: provê mapeamento VRAM / periféricos e flag de interrupção.
+- CPU: contém registradores, PC, ciclo de fetch/execute e decodificador RV32I.
+- Funções auxiliares para montar instruções (usadas apenas para criar o `programa_de_teste`).
+
+Extensões sugeridas (extras/bonus)
+---------------------------------
+- Implementar cache (256 linhas) entre CPU e barramento.
+- Adicionar pipeline de 5 estágios e resolução de hazards.
+- Implementar mais CSRs e tratamento completo de interrupções e exceções.
+- Criar interface gráfica para visualizar memória/registradores em tempo real.
+
+Referência
+---------
+Documento do enunciado do projeto: (arquivo enviado pelo aluno). :contentReference[oaicite:1]{index=1}
