@@ -137,3 +137,7 @@ Este simulador foi criado para:
 * Debugger passo a passo
 * Carregamento de binários ELF
 
+https://github.com/user-attachments/assets/6dcb2be9-f01c-4114-bf59-7daff43f1687
+
+
+
